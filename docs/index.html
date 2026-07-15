@@ -55,8 +55,9 @@
     }
 
     /* HERO */
-    .hero{background:url('static/images/header.jpg') center/cover no-repeat;background-color:#0f2a4a;padding:0 24px;aspect-ratio:1920/683;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;}
-    .hero::before{content:'';position:absolute;inset:0;background:rgba(15,42,74,.7);}
+    .hero{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;min-height:400px;}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;}
+    .hero::before{content:'';position:absolute;inset:0;background:rgba(15,42,74,.7);z-index:1;}
     .hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto;}
     .hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:white;padding:4px 16px;border-radius:20px;font-size:.82em;font-weight:500;margin-bottom:18px;}
     .hero h1{font-size:2.8em;font-weight:800;color:white;margin-bottom:10px;line-height:1.15;letter-spacing:-1px;}
@@ -68,7 +69,7 @@
     .btn-w:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.15);}
     .btn-g{background:rgba(255,255,255,.1);color:white!important;border:1px solid rgba(255,255,255,.25);}
     .btn-g:hover{background:rgba(255,255,255,.18);}
-    @media(max-width:640px){.hero{padding:108px 16px 52px;min-height:auto;background-size:cover;}.hero h1{font-size:1.9em;}}
+    @media(max-width:640px){.hero{min-height:300px;}.hero h1{font-size:1.9em;}}
 
     /* SECTIONS */
     .sec{padding:64px 24px;}.sec.alt{background:var(--bg-alt);}
@@ -207,6 +208,7 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
+  <img src="static/images/header.jpg" alt="" class="hero-bg">
   <div class="hero-inner">
     <div class="hero-badge"><i class="fas fa-award"></i>&nbsp; ECCV 2026</div>
     <h1>WebRetriever Challenge 2026</h1>
