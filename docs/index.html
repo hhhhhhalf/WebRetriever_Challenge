@@ -26,9 +26,21 @@
     .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.04);transition:box-shadow .3s;}
     .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;}
     .nav-brand{font-weight:700;font-size:.95em;color:var(--primary);text-decoration:none;}
-    .nav-links{display:flex;gap:1px;}
-    .nav-links a{color:var(--text-3);text-decoration:none;font-size:.8em;font-weight:500;padding:6px 10px;border-radius:6px;transition:all .2s;}
-    .nav-links a:hover,.nav-links a.active{color:var(--primary);background:var(--primary-light);}
+    /* NAV DROPDOWN */
+    .nav-dropdown{position:relative;}
+    .nav-dropdown-toggle{color:var(--text-3);text-decoration:none;font-size:.8em;font-weight:600;padding:6px 10px;border-radius:6px;transition:all .2s;cursor:pointer;background:none;border:none;font-family:inherit;display:flex;align-items:center;gap:4px;}
+    .nav-dropdown-toggle:hover,.nav-dropdown.is-open .nav-dropdown-toggle{color:var(--primary);background:var(--primary-light);}
+    .nav-dropdown-toggle .arrow{font-size:.6em;transition:transform .2s;}
+    .nav-dropdown.is-open .arrow{transform:rotate(180deg);}
+    .nav-dropdown-menu{display:none;position:absolute;top:42px;left:0;background:white;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.1);border:1px solid var(--border);padding:6px;min-width:140px;z-index:100;}
+    .nav-dropdown.is-open .nav-dropdown-menu{display:flex;flex-direction:column;}
+    .nav-dropdown-menu a{color:var(--text-3);text-decoration:none;font-size:.8em;font-weight:500;padding:7px 12px;border-radius:6px;transition:all .2s;white-space:nowrap;}
+    .nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{color:var(--primary);background:var(--primary-light);}
+    @media(max-width:900px){
+      .nav-dropdown-menu{position:static;box-shadow:none;border:none;border-radius:0;padding:0 0 0 12px;border-left:2px solid var(--border);margin:4px 0;}
+      .nav-dropdown.is-open .nav-dropdown-menu{display:flex;}
+      .nav-dropdown-menu a{padding:8px 12px;font-size:.85em;}
+    }
     .nav-burger{display:none;cursor:pointer;background:none;border:none;font-size:1.2em;color:var(--text-3);padding:8px;}
     @media(max-width:900px){
       .nav-links{display:none;position:absolute;top:54px;left:0;right:0;background:white;flex-direction:column;padding:8px 16px;box-shadow:0 4px 16px rgba(0,0,0,.08);}
@@ -165,16 +177,23 @@
     <a href="#hero" class="nav-brand">WebRetriever Challenge</a>
     <button class="nav-burger" id="navBurger" aria-label="menu"><i class="fas fa-bars"></i></button>
     <div class="nav-links" id="navLinks">
-      <a href="#background" data-lang="zh">背景</a><a href="#background" data-lang="en">Background</a>
-      <a href="#task" data-lang="zh">赛题</a><a href="#task" data-lang="en">Task</a>
-      <a href="#evaluation" data-lang="zh">评测</a><a href="#evaluation" data-lang="en">Evaluation</a>
-      <a href="#prizes" data-lang="zh">奖项</a><a href="#prizes" data-lang="en">Prizes</a>
-      <a href="#schedule" data-lang="zh">赛程</a><a href="#schedule" data-lang="en">Schedule</a>
-      <a href="#registration" data-lang="zh">报名</a><a href="#registration" data-lang="en">Register</a>
-      <a href="#eligibility" data-lang="zh">资格</a><a href="#eligibility" data-lang="en">Eligibility</a>
-      <a href="#organizers" data-lang="zh">组织</a><a href="#organizers" data-lang="en">Organizers</a>
-      <a href="#resources" data-lang="zh">资源</a><a href="#resources" data-lang="en">Resources</a>
-      <a href="#contact" data-lang="zh">联系</a><a href="#contact" data-lang="en">Contact</a>
+      <div class="nav-dropdown" id="navDropdown">
+        <button class="nav-dropdown-toggle" id="navDropToggle">
+          <span data-lang="zh">赛事主页</span><span data-lang="en">Home</span> <i class="fas fa-chevron-down arrow"></i>
+        </button>
+        <div class="nav-dropdown-menu" id="navDropMenu">
+          <a href="#background" data-lang="zh">背景</a><a href="#background" data-lang="en">Background</a>
+          <a href="#task" data-lang="zh">赛题</a><a href="#task" data-lang="en">Task</a>
+          <a href="#evaluation" data-lang="zh">评测</a><a href="#evaluation" data-lang="en">Evaluation</a>
+          <a href="#prizes" data-lang="zh">奖项</a><a href="#prizes" data-lang="en">Prizes</a>
+          <a href="#schedule" data-lang="zh">赛程</a><a href="#schedule" data-lang="en">Schedule</a>
+          <a href="#registration" data-lang="zh">报名</a><a href="#registration" data-lang="en">Register</a>
+          <a href="#eligibility" data-lang="zh">资格</a><a href="#eligibility" data-lang="en">Eligibility</a>
+          <a href="#organizers" data-lang="zh">组织</a><a href="#organizers" data-lang="en">Organizers</a>
+          <a href="#resources" data-lang="zh">资源</a><a href="#resources" data-lang="en">Resources</a>
+          <a href="#contact" data-lang="zh">联系</a><a href="#contact" data-lang="en">Contact</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
@@ -547,12 +566,14 @@ function toggleLang(){
   document.documentElement.lang=currentLang;
 }
 document.getElementById('navBurger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('is-open');});
-document.querySelectorAll('#navLinks a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('is-open');});});
+document.getElementById('navDropToggle').addEventListener('click',function(e){e.stopPropagation();document.getElementById('navDropdown').classList.toggle('is-open');});
+document.querySelectorAll('#navDropMenu a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navDropdown').classList.remove('is-open');document.getElementById('navLinks').classList.remove('is-open');});});
+document.addEventListener('click',function(e){if(!document.getElementById('navDropdown').contains(e.target)){document.getElementById('navDropdown').classList.remove('is-open');}});
 var secs=document.querySelectorAll('.sec[id],.hero[id]');
 function updateNav(){
   var cur='';
   secs.forEach(function(s){if(scrollY>=s.offsetTop-80)cur=s.id;});
-  document.querySelectorAll('#navLinks a:not([style*="display: none"])').forEach(function(a){
+  document.querySelectorAll('#navDropMenu a:not([style*="display: none"])').forEach(function(a){
     a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
   });
 }
