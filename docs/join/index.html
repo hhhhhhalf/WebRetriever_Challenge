@@ -173,9 +173,13 @@ Follow the guide at: https://github.com/Mininglamp-AI/WebRetriever_Challenge/joi
 <script>
 function toggleLang(){
   var b=document.body,btn=document.getElementById('langBtn');
-  if(b.classList.contains('lang-zh')){b.classList.replace('lang-zh','lang-en');btn.textContent='中';}
-  else{b.classList.replace('lang-en','lang-zh');btn.textContent='EN';}
+  var lang=b.classList.contains('lang-zh')?'en':'zh';
+  b.className='lang-'+lang;
+  btn.textContent=lang==='zh'?'EN':'中';
+  document.documentElement.lang=lang;
+  localStorage.setItem('wr-lang',lang);
 }
+(function(){var lang=localStorage.getItem('wr-lang')||'en';document.body.className='lang-'+lang;document.documentElement.lang=lang;document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';})();
 function copyPrompt(btn){
   var block=document.getElementById('prompt-block');
   var text=block.innerText.replace('Copy','').trim();

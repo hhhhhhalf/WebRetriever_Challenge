@@ -575,12 +575,16 @@
 
 <!-- SCRIPTS -->
 <script>
-var currentLang='en';
+var currentLang=localStorage.getItem('wr-lang')||'en';
+document.body.className='lang-'+currentLang;
+document.documentElement.lang=currentLang;
+document.getElementById('langBtn').textContent=currentLang==='zh'?'EN':'中';
 function toggleLang(){
   currentLang=currentLang==='zh'?'en':'zh';
   document.body.className='lang-'+currentLang;
   document.getElementById('langBtn').textContent=currentLang==='zh'?'EN':'中';
   document.documentElement.lang=currentLang;
+  localStorage.setItem('wr-lang',currentLang);
 }
 document.getElementById('navBurger').addEventListener('click',function(){document.getElementById('navLinks').classList.toggle('is-open');});
 document.getElementById('navDropToggle').addEventListener('click',function(e){e.stopPropagation();document.getElementById('navDropdown').classList.toggle('is-open');});
