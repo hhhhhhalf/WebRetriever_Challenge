@@ -177,9 +177,10 @@ function toggleLang(){
   b.className='lang-'+lang;
   btn.textContent=lang==='zh'?'EN':'中';
   document.documentElement.lang=lang;
-  sessionStorage.setItem('wr-lang',lang);
+  history.replaceState(null,'',lang==='en'?location.pathname:location.pathname+'?lang=zh');
+  document.querySelectorAll('a[href*="../"]').forEach(function(a){var u=a.getAttribute('href').split('?')[0];a.href=lang==='en'?u:u+'?lang=zh';});
 }
-(function(){var lang=sessionStorage.getItem('wr-lang')||'en';document.body.className='lang-'+lang;document.documentElement.lang=lang;document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';})();
+(function(){var lang=new URLSearchParams(location.search).get('lang')||'en';document.body.className='lang-'+lang;document.documentElement.lang=lang;document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';})();
 function copyPrompt(btn){
   var block=document.getElementById('prompt-block');
   var text=block.innerText.replace('Copy','').trim();
