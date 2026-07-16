@@ -14,12 +14,10 @@
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{font-family:'Inter','Noto Sans SC',-apple-system,sans-serif;color:var(--text);line-height:1.7;background:var(--bg);}
-
     body.lang-zh [data-lang=en]{display:none !important;}
     body.lang-en [data-lang=zh]{display:none !important;}
     .lang-btn{position:fixed;bottom:24px;right:24px;z-index:9999;background:var(--primary);color:white;border:none;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:.85em;font-weight:700;box-shadow:0 4px 16px rgba(0,0,0,.2);transition:all .2s;display:flex;align-items:center;justify-content:center;}
     .lang-btn:hover{transform:scale(1.08);}
-
     .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.04);}
     .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:54px;}
     .nav-brand{text-decoration:none;display:flex;align-items:center;gap:8px;font-weight:700;font-size:.95em;color:var(--text-3);}
@@ -39,10 +37,12 @@
     .guide-section{margin-bottom:44px;}
     .guide-section h2{font-size:1.2em;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--primary-light);display:flex;align-items:center;gap:8px;}
     .guide-section h2 i{color:var(--primary);font-size:.9em;}
-    .guide-section h3{font-size:1em;font-weight:600;margin:20px 0 10px;color:var(--text-2);}
     .guide-section p{color:var(--text-2);margin-bottom:12px;font-size:.95em;}
-    .guide-section ul,.guide-section ol{color:var(--text-2);margin:0 0 16px 20px;font-size:.95em;}
+    .guide-section ul{color:var(--text-2);margin:0 0 16px 20px;font-size:.95em;}
     .guide-section li{margin-bottom:6px;}
+    a.resource-link{color:var(--primary);text-decoration:none;font-weight:500;border-bottom:1px dashed var(--primary);transition:all .2s;}
+    a.resource-link:hover{border-bottom-style:solid;}
+    code{background:var(--bg-alt);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:.88em;font-family:'SF Mono','Fira Code',monospace;}
 
     .step-flow{display:flex;flex-direction:column;gap:0;margin:20px 0;}
     .step-item{display:flex;gap:16px;position:relative;padding-bottom:24px;}
@@ -55,12 +55,7 @@
     .step-body p{margin:4px 0 0;font-size:.88em;color:var(--text-3);}
 
     .info-card{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin:16px 0;}
-    .info-card.accent{background:var(--accent-light);border-color:#b2f5ea;}
-    .info-card.primary{background:var(--primary-light);border-color:#bfdbfe;}
     .info-card p{margin:0;font-size:.9em;}
-    .info-card ul{margin:8px 0 0 16px;font-size:.9em;}
-
-    code{background:var(--bg-alt);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:.88em;font-family:'SF Mono','Fira Code',monospace;}
 
     .faq-item{background:white;border:1px solid var(--border);border-left:3px solid var(--primary);border-radius:var(--radius);padding:18px 22px;margin-bottom:14px;}
     .faq-item h3{font-size:.95em;font-weight:700;color:var(--primary);margin:0 0 8px;}
@@ -92,7 +87,6 @@
 
 <div class="page-container">
 
-  <!-- Header -->
   <div class="page-header">
     <div class="icon"><i class="fas fa-book-open"></i></div>
     <h1 data-lang="zh">评测指南</h1>
@@ -101,121 +95,71 @@
     <p class="subtitle" data-lang="en">Your complete guide from registration to submission</p>
   </div>
 
-  <!-- ========== Section 1: 参赛流程总览 ========== -->
+  <!-- ========== 参赛流程 ========== -->
   <div class="guide-section">
-    <h2 data-lang="zh"><i class="fas fa-route"></i> 参赛流程总览</h2>
-    <h2 data-lang="en"><i class="fas fa-route"></i> Participation Overview</h2>
+    <h2 data-lang="zh"><i class="fas fa-route"></i> 参赛流程</h2>
+    <h2 data-lang="en"><i class="fas fa-route"></i> How It Works</h2>
 
     <div class="step-flow">
       <div class="step-item" data-lang="zh">
         <div class="step-num">1</div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>报名 & 组队</strong>
-          <p>在 Octo 平台完成注册，加入赛事空间并组队。</p>
-        </div>
+        <div class="step-body"><strong>报名 & 组队</strong><p>在 Octo 平台注册账号，加入赛事空间并完成组队。</p></div>
       </div>
       <div class="step-item" data-lang="zh">
         <div class="step-num">2</div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>备赛：基于开源项目开发 Agent</strong>
-          <p>阅读论文，了解评测协议，基于我们的开源代码仓库开始构建你的 Agent。</p>
-        </div>
+        <div class="step-body"><strong>备赛：基于开源项目开发 Agent</strong><p>阅读论文，了解 Protocol III，基于开源代码仓库构建你的 Agent。</p></div>
       </div>
       <div class="step-item" data-lang="zh">
         <div class="step-num">3</div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>获取队伍仓库 & 迁移代码</strong>
-          <p>报名期结束后获得队伍专属私有仓库，将你开发好的 Agent 迁移过去。</p>
-        </div>
+        <div class="step-body"><strong>获取队伍仓库 & 迁移代码</strong><p>报名期结束后获得队伍专属私有仓库，将开发好的 Agent 迁移过去。</p></div>
       </div>
       <div class="step-item" data-lang="zh">
         <div class="step-num">4</div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>环境适配 & 冒烟测试</strong>
-          <p>将代码迁移到队伍仓库后，确保依赖安装和运行环境正确配置，通过冒烟测试后方可提交正式评测。</p>
-        </div>
+        <div class="step-body"><strong>环境适配 & 冒烟测试</strong><p>正式评测前一周开放。确保依赖安装和运行环境配置正确，通过冒烟测试后方可提交正式评测。</p></div>
       </div>
       <div class="step-item" data-lang="zh">
         <div class="step-num">5</div>
-        <div class="step-body">
-          <strong>提交 & 自动评测</strong>
-          <p>Push 到 <code>main</code> 分支，通过赛事 Bot 发起评测并获取评分。</p>
-        </div>
+        <div class="step-body"><strong>提交 & 自动评测</strong><p>Push 代码到 <code>main</code> 分支，通过赛事 Bot 发起评测。系统自动拉取代码、安装依赖、在云端沙箱中执行 100 道任务并返回评分。评测窗口期内可多次提交，取最优成绩。</p></div>
       </div>
     </div>
 
     <div class="step-flow">
       <div class="step-item" data-lang="en">
         <div class="step-num">1</div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>Register & Form a Team</strong>
-          <p>Sign up on the Octo platform, join the competition space, and form your team.</p>
-        </div>
+        <div class="step-body"><strong>Register & Form a Team</strong><p>Sign up on the Octo platform, join the competition space, and form your team.</p></div>
       </div>
       <div class="step-item" data-lang="en">
         <div class="step-num">2</div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>Prepare: Build Your Agent from the Open-Source Project</strong>
-          <p>Read the paper, understand the evaluation protocols, and start building your Agent based on our open-source code repository.</p>
-        </div>
+        <div class="step-body"><strong>Prepare: Build Your Agent from the Open-Source Project</strong><p>Read the paper, understand Protocol III, and build your Agent based on the open-source code repository.</p></div>
       </div>
       <div class="step-item" data-lang="en">
         <div class="step-num">3</div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>Get Your Team Repository & Migrate Code</strong>
-          <p>After registration closes, receive your team's private repository and migrate your Agent into it.</p>
-        </div>
+        <div class="step-body"><strong>Get Your Team Repository & Migrate Code</strong><p>After registration closes, receive your team's private repository and migrate your Agent into it.</p></div>
       </div>
       <div class="step-item" data-lang="en">
         <div class="step-num">4</div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>Environment Setup & Smoke Test</strong>
-          <p>After migrating code to your team repository, ensure dependencies and runtime environment are properly configured. You must pass the smoke test before submitting for formal evaluation.</p>
-        </div>
+        <div class="step-body"><strong>Environment Setup & Smoke Test</strong><p>Opens one week before formal evaluation. Ensure dependencies and runtime are properly configured; you must pass the smoke test before submitting.</p></div>
       </div>
       <div class="step-item" data-lang="en">
         <div class="step-num">5</div>
-        <div class="step-body">
-          <strong>Submit & Automated Evaluation</strong>
-          <p>Push to the <code>main</code> branch, initiate evaluation via the Competition Bot, and get your score.</p>
-        </div>
+        <div class="step-body"><strong>Submit & Automated Evaluation</strong><p>Push code to the <code>main</code> branch, initiate evaluation via the Competition Bot. The system automatically pulls code, installs dependencies, runs your Agent across 100 tasks in cloud sandboxes, and returns your score. Multiple submissions allowed; best score counts.</p></div>
       </div>
     </div>
   </div>
 
-  <!-- ========== Section 2: 如何开始备赛 ========== -->
+  <!-- ========== 如何备赛 ========== -->
   <div class="guide-section">
-    <h2 data-lang="zh"><i class="fas fa-rocket"></i> 如何开始备赛</h2>
-    <h2 data-lang="en"><i class="fas fa-rocket"></i> How to Start Preparing</h2>
+    <h2 data-lang="zh"><i class="fas fa-rocket"></i> 如何备赛</h2>
+    <h2 data-lang="en"><i class="fas fa-rocket"></i> How to Prepare</h2>
 
-    <p data-lang="zh">报名完成后即可进入备赛。建议按以下顺序进行：</p>
-    <p data-lang="en">You can start preparing immediately after registration. We recommend the following order:</p>
+    <p data-lang="zh">报名后即可开始备赛：</p>
+    <p data-lang="en">Start preparing right after registration:</p>
 
-    <h3 data-lang="zh">① 阅读论文 & 了解 Protocol III</h3>
-    <h3 data-lang="en">① Read the Paper & Understand Protocol III</h3>
-    <p data-lang="zh">WebRetriever 论文定义了三种评测协议，本次比赛采用 <strong>Protocol III（端到端任务协议）</strong>——Agent 需要在真实网站上自主完成完整任务链，最终提取并返回目标信息。建议结合论文和 <a class="resource-link" href="https://huggingface.co/datasets/Mininglamp-2718/WebRetriever" target="_blank">Hugging Face 数据集</a> 了解任务格式和评分标准。</p>
-    <p data-lang="en">The WebRetriever paper defines three evaluation protocols. This competition uses <strong>Protocol III (End-to-End Task Protocol)</strong> — Agents must autonomously complete full task chains on live websites and extract target information. We recommend reading the paper alongside the <a class="resource-link" href="https://huggingface.co/datasets/Mininglamp-2718/WebRetriever" target="_blank">Hugging Face dataset</a> to understand the task format and scoring criteria.</p>
+    <p data-lang="zh"><strong>① 阅读论文，了解 Protocol III</strong> — WebRetriever 定义了三种评测协议，本次比赛采用 <strong>Protocol III（端到端任务协议）</strong>。建议结合 <a class="resource-link" href="https://arxiv.org/abs/2607.06118" target="_blank">论文</a> 和 <a class="resource-link" href="https://huggingface.co/datasets/Mininglamp-2718/WebRetriever" target="_blank">数据集</a> 了解任务格式与评分标准。</p>
+    <p data-lang="en"><strong>① Read the paper & understand Protocol III</strong> — WebRetriever defines three evaluation protocols; this competition uses <strong>Protocol III (End-to-End Task Protocol)</strong>. Read the <a class="resource-link" href="https://arxiv.org/abs/2607.06118" target="_blank">paper</a> and explore the <a class="resource-link" href="https://huggingface.co/datasets/Mininglamp-2718/WebRetriever" target="_blank">dataset</a> to understand the task format and scoring criteria.</p>
 
-    <h3 data-lang="zh">② 基于开源代码构建你的 Agent</h3>
-    <h3 data-lang="en">② Build Your Agent from the Open-Source Code</h3>
-    <p data-lang="zh">我们的<strong>比赛代码模板在很大程度上基于开源代码仓库设计</strong>。因此，建议直接从开源项目入手开发你的 Agent：</p>
-    <p data-lang="en">Our <strong>competition code template is largely designed around the open-source repository</strong>. So we recommend starting your Agent development directly from the open-source project:</p>
-    <ul data-lang="zh">
-      <li>Clone 开源仓库，运行示例，理解 Agent 的执行框架</li>
-      <li>在此基础上改进 Agent 的决策逻辑、提示工程、多步推理策略等</li>
-      <li>备赛期获得队伍仓库后，只需将你的代码迁移过去即可</li>
-    </ul>
-    <ul data-lang="en">
-      <li>Clone the open-source repository, run examples, and understand the Agent execution framework</li>
-      <li>Improve the Agent's decision logic, prompt engineering, multi-step reasoning strategies, etc.</li>
-      <li>When you receive your team repository, simply migrate your code over</li>
-    </ul>
-  </div>
-
-  <!-- ========== Section 3: 相关资源 ========== -->
-  <div class="guide-section">
-    <h2 data-lang="zh"><i class="fas fa-link"></i> 相关资源</h2>
-    <h2 data-lang="en"><i class="fas fa-link"></i> Resources</h2>
+    <p data-lang="zh"><strong>② 基于开源代码构建 Agent</strong> — 比赛代码模板基于 <a class="resource-link" href="https://github.com/Mininglamp-AI/WebRetriever" target="_blank">开源仓库</a> 设计，建议直接从开源项目入手：Clone 仓库 → 运行示例 → 改进 Agent 逻辑。获得队伍仓库后将代码迁移过去即可。</p>
+    <p data-lang="en"><strong>② Build your Agent from the open-source code</strong> — The competition template is built on the <a class="resource-link" href="https://github.com/Mininglamp-AI/WebRetriever" target="_blank">open-source repository</a>. Start there: clone → run examples → improve your Agent logic. Migrate your code when you receive your team repository.</p>
 
     <div class="res-grid">
       <a href="https://arxiv.org/abs/2607.06118" target="_blank" class="res-card">
@@ -246,157 +190,77 @@
     </div>
   </div>
 
-  <!-- ========== Section 4: 评测流程 ========== -->
-  <div class="guide-section">
-    <h2 data-lang="zh"><i class="fas fa-flask"></i> 评测流程</h2>
-    <h2 data-lang="en"><i class="fas fa-flask"></i> Evaluation Process</h2>
-
-    <p data-lang="zh">获得队伍仓库后，通过以下流程提交评测：</p>
-    <p data-lang="en">Once you have your team repository, submit for evaluation through the following process:</p>
-
-    <div class="step-flow">
-      <div class="step-item" data-lang="zh">
-        <div class="step-num"><i class="fas fa-code-branch" style="font-size:.7em"></i></div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>Push 代码到 <code>main</code> 分支</strong>
-          <p>将你的 Agent 代码推送到队伍私有仓库的 main 分支。</p>
-        </div>
-      </div>
-      <div class="step-item" data-lang="zh">
-        <div class="step-num"><i class="fas fa-robot" style="font-size:.7em"></i></div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>通过赛事 Bot 发起评测</strong>
-          <p>在 Octo 赛事空间中向 Bot 发送提交指令。</p>
-        </div>
-      </div>
-      <div class="step-item" data-lang="zh">
-        <div class="step-num"><i class="fas fa-cogs" style="font-size:.7em"></i></div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>系统自动执行</strong>
-          <p>拉取代码 → 静态检查 → 安装依赖 → 在云端浏览器沙箱中运行你的 Agent 完成 100 道评测任务。</p>
-        </div>
-      </div>
-      <div class="step-item" data-lang="zh">
-        <div class="step-num"><i class="fas fa-chart-line" style="font-size:.7em"></i></div>
-        <div class="step-body">
-          <strong>获取评分</strong>
-          <p>评测完成后自动返回成绩。评测窗口期内可多次提交，取最优成绩。</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="step-flow">
-      <div class="step-item" data-lang="en">
-        <div class="step-num"><i class="fas fa-code-branch" style="font-size:.7em"></i></div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>Push code to the <code>main</code> branch</strong>
-          <p>Push your Agent code to the main branch of your team's private repository.</p>
-        </div>
-      </div>
-      <div class="step-item" data-lang="en">
-        <div class="step-num"><i class="fas fa-robot" style="font-size:.7em"></i></div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>Submit via the Competition Bot</strong>
-          <p>Send the submission command to the Bot in the Octo competition space.</p>
-        </div>
-      </div>
-      <div class="step-item" data-lang="en">
-        <div class="step-num"><i class="fas fa-cogs" style="font-size:.7em"></i></div><div class="step-line"></div>
-        <div class="step-body">
-          <strong>Automated execution</strong>
-          <p>Pull code → static checks → install dependencies → run your Agent in cloud browser sandboxes across 100 evaluation tasks.</p>
-        </div>
-      </div>
-      <div class="step-item" data-lang="en">
-        <div class="step-num"><i class="fas fa-chart-line" style="font-size:.7em"></i></div>
-        <div class="step-body">
-          <strong>Get your score</strong>
-          <p>Results are returned automatically. Multiple submissions allowed within the evaluation window; best score counts.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== Section 5: FAQ ========== -->
+  <!-- ========== FAQ ========== -->
   <div class="guide-section">
     <h2 data-lang="zh"><i class="fas fa-question-circle"></i> 常见问题</h2>
     <h2 data-lang="en"><i class="fas fa-question-circle"></i> FAQ</h2>
 
     <div class="faq-item" data-lang="zh">
-      <h3>Q: 比赛的题目类型是什么？</h3>
-      <p>A: 比赛采用论文中的 <strong>Protocol III（端到端任务协议）</strong>——要求 Agent 不仅导航到正确页面，还需从页面中精准提取目标信息并返回最终答案。</p>
+      <h3>Q: 比赛题目是什么类型？有多少道？</h3>
+      <p>A: 共 <strong>100 道</strong>基于 Protocol III 的端到端评测任务，覆盖多行业真实网站。Agent 需从指定网页出发，自主导航并提取目标信息返回最终答案。</p>
     </div>
     <div class="faq-item" data-lang="en">
-      <h3>Q: What type of tasks are used in the competition?</h3>
-      <p>A: The competition uses <strong>Protocol III (End-to-End Task Protocol)</strong> from the paper — requiring Agents not only to navigate to the correct page, but also to precisely extract target information and return the final answer.</p>
+      <h3>Q: What type of tasks and how many?</h3>
+      <p>A: <strong>100</strong> end-to-end tasks based on Protocol III, covering real websites across multiple industries. Agents must navigate from a designated webpage and extract target information to return the final answer.</p>
     </div>
 
     <div class="info-card" style="margin-bottom:14px;">
-      <p data-lang="zh">⚠️ <strong>注意</strong>：比赛使用的 100 道题目是<strong>专门为本次挑战赛全新设计</strong>的，与论文中开源数据集里 Protocol III 的 100 道题目<strong>完全不同</strong>。选手不能通过刷开源题目来获得优势。</p>
-      <p data-lang="en">⚠️ <strong>Note</strong>: The 100 competition tasks are <strong>entirely new, specifically designed for this challenge</strong>, and are <strong>completely different</strong> from the 100 Protocol III tasks in the open-source dataset. Practicing on open-source tasks will not give you a direct advantage.</p>
+      <p data-lang="zh">⚠️ 比赛的 100 道题目是<strong>专门为本次挑战赛全新设计</strong>的，与开源数据集中 Protocol III 的 100 道题目<strong>完全不同</strong>。</p>
+      <p data-lang="en">⚠️ The 100 competition tasks are <strong>entirely new, designed specifically for this challenge</strong>, and <strong>completely different</strong> from the Protocol III tasks in the open-source dataset.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
-      <h3>Q: 比赛有多少道题目？</h3>
-      <p>A: 共 <strong>100 道</strong>端到端评测任务，覆盖多行业真实网站场景。</p>
+      <h3>Q: 需要自己准备推理资源吗？</h3>
+      <p>A: 是的。Agent 通过 OpenAI 兼容 API 调用模型，选手自行管理推理资源——商业 API（OpenAI、Claude 等）或自部署开源模型均可。</p>
     </div>
     <div class="faq-item" data-lang="en">
-      <h3>Q: How many tasks are there?</h3>
-      <p>A: <strong>100</strong> end-to-end evaluation tasks covering real website scenarios across multiple industries.</p>
-    </div>
-
-    <div class="faq-item" data-lang="zh">
-      <h3>Q: 需要自己准备 GPU / 推理服务器吗？</h3>
-      <p>A: 是的。参赛 Agent 通过 OpenAI 兼容接口调用模型，选手需自行管理推理资源。可以使用商业 API（如 OpenAI、Claude 等）或自部署开源模型。</p>
-    </div>
-    <div class="faq-item" data-lang="en">
-      <h3>Q: Do I need my own GPU / inference server?</h3>
-      <p>A: Yes. Agents call models via OpenAI-compatible APIs. Teams manage their own inference resources — commercial APIs (OpenAI, Claude, etc.) or self-hosted open-source models are both fine.</p>
+      <h3>Q: Do I need my own inference resources?</h3>
+      <p>A: Yes. Agents call models via OpenAI-compatible APIs. Teams manage their own resources — commercial APIs (OpenAI, Claude, etc.) or self-hosted models are both fine.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
       <h3>Q: 浏览器环境需要自己搭建吗？</h3>
-      <p>A: 不需要。评测时由平台提供云端浏览器沙箱（通过 CDP 协议连接）。本地调试时可自行使用 Playwright 等工具。</p>
+      <p>A: 不需要。评测时平台提供云端浏览器沙箱（CDP 协议连接）。本地调试可自行使用 Playwright 等工具。</p>
     </div>
     <div class="faq-item" data-lang="en">
       <h3>Q: Do I need to set up the browser environment?</h3>
-      <p>A: No. Cloud browser sandboxes (connected via CDP) are provided during evaluation. For local debugging, you can use tools like Playwright.</p>
+      <p>A: No. Cloud browser sandboxes (via CDP) are provided during evaluation. For local debugging, use tools like Playwright.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
       <h3>Q: 可以使用哪些模型？</h3>
-      <p>A: 不限。你可以使用任何模型或多模型组合（GPT-4o、Claude、Gemini、Qwen、开源模型等），唯一要求是通过 OpenAI 兼容 API 接入。</p>
+      <p>A: 不限。任何模型或多模型组合均可（GPT-4o、Claude、Gemini、Qwen、开源模型等），唯一要求是通过 OpenAI 兼容 API 接入。</p>
     </div>
     <div class="faq-item" data-lang="en">
       <h3>Q: What models can I use?</h3>
-      <p>A: No restrictions. Any model or combination (GPT-4o, Claude, Gemini, Qwen, open-source models, etc.) is allowed, as long as it connects via an OpenAI-compatible API.</p>
+      <p>A: No restrictions. Any model or combination is allowed, as long as it connects via an OpenAI-compatible API.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
-      <h3>Q: 评测的并发数、超时和步骤限制是多少？</h3>
-      <p>A: 最高 <strong>8 个任务并发</strong>执行；单次模型请求超时 <strong>3 分钟</strong>；每个任务最多 <strong>100 步</strong>操作；每个任务<strong>没有重试机会</strong>——失败即计 0 分。请确保你的 Agent 在这些约束下稳定运行。</p>
+      <h3>Q: 并发数、超时和步骤限制是多少？</h3>
+      <p>A: 最高 <strong>8 个任务并发</strong>；单次模型请求超时 <strong>3 分钟</strong>；每个任务最多 <strong>100 步</strong>；每个任务<strong>无重试</strong>，失败即 0 分。</p>
     </div>
     <div class="faq-item" data-lang="en">
       <h3>Q: What are the concurrency, timeout, and step limits?</h3>
-      <p>A: Up to <strong>8 tasks run concurrently</strong>; single model request timeout is <strong>3 minutes</strong>; each task allows a maximum of <strong>100 steps</strong>; <strong>no retries</strong> per task — a failure scores 0. Make sure your Agent runs reliably under these constraints.</p>
+      <p>A: Up to <strong>8 concurrent tasks</strong>; <strong>3-minute</strong> timeout per model request; max <strong>100 steps</strong> per task; <strong>no retries</strong> — failure scores 0.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
       <h3>Q: 是否允许使用外部搜索引擎？</h3>
-      <p>A: <strong>不允许。</strong>Protocol III 考察的是 Agent 从指定起始网页出发的导航与信息提取能力，而非通用搜索能力。赛后成绩复核阶段将进行<strong>操作轨迹验证</strong>，确认任务结果是通过浏览器操作从目标网站获取，而非通过搜索引擎直接得到。</p>
+      <p>A: <strong>不允许。</strong>Protocol III 考察从指定网页出发的导航与信息提取能力。赛后将进行<strong>操作轨迹验证</strong>，确认结果通过浏览器操作获取而非搜索引擎。</p>
     </div>
     <div class="faq-item" data-lang="en">
       <h3>Q: Are external search engines allowed?</h3>
-      <p>A: <strong>No.</strong> Protocol III evaluates an Agent's ability to navigate and extract information starting from a designated webpage, not general search capability. During post-competition review, <strong>action trajectories will be verified</strong> to confirm that results were obtained through browser operations on the target website, not via search engines.</p>
+      <p>A: <strong>No.</strong> Protocol III evaluates navigation and extraction from a designated webpage. Post-competition <strong>trajectory verification</strong> ensures results were obtained via browser operations, not search engines.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
-      <h3>Q: 开源项目和比赛代码模板是什么关系？</h3>
-      <p>A: 比赛代码模板是开源项目的精简版，保留了 Agent 核心执行框架，并预设好了评测系统的接口（任务输入、结果输出、沙箱连接）。你在开源项目上开发的 Agent 逻辑可以直接迁移到比赛模板中使用。</p>
+      <h3>Q: 开源项目和比赛模板是什么关系？</h3>
+      <p>A: 比赛模板是开源项目的精简版，保留核心 Agent 框架并预设了评测接口。你在开源项目上开发的 Agent 可直接迁移到模板中使用。</p>
     </div>
     <div class="faq-item" data-lang="en">
-      <h3>Q: What's the relationship between the open-source project and the competition template?</h3>
-      <p>A: The competition template is a streamlined version of the open-source project. It retains the core Agent execution framework and pre-configures the evaluation system interfaces (task input, result output, sandbox connection). Agent logic you develop on the open-source project can be directly migrated into the competition template.</p>
+      <h3>Q: What's the relationship between the open-source project and the template?</h3>
+      <p>A: The template is a streamlined version of the open-source project with pre-configured evaluation interfaces. Agent logic developed on the open-source project can be directly migrated.</p>
     </div>
   </div>
 
@@ -408,16 +272,8 @@
 </div>
 
 <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
-
 <script>
-function toggleLang(){
-  var b=document.body,btn=document.getElementById('langBtn');
-  var lang=b.classList.contains('lang-zh')?'en':'zh';
-  b.className='lang-'+lang;
-  btn.textContent=lang==='zh'?'EN':'中';
-  document.documentElement.lang=lang;
-  history.replaceState(null,'',lang==='en'?location.pathname:location.pathname+'?lang=zh');
-}
+function toggleLang(){var b=document.body,btn=document.getElementById('langBtn');var lang=b.classList.contains('lang-zh')?'en':'zh';b.className='lang-'+lang;btn.textContent=lang==='zh'?'EN':'中';document.documentElement.lang=lang;history.replaceState(null,'',lang==='en'?location.pathname:location.pathname+'?lang=zh');}
 (function(){var lang=new URLSearchParams(location.search).get('lang')||'en';document.body.className='lang-'+lang;document.documentElement.lang=lang;document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';})();
 </script>
 </body>
