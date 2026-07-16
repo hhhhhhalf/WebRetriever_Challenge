@@ -369,6 +369,24 @@
     </div>
 
     <div class="faq-item" data-lang="zh">
+      <h3>Q: 评测的并发数、超时和步骤限制是多少？</h3>
+      <p>A: 最高 <strong>8 个任务并发</strong>执行；单次模型请求超时 <strong>3 分钟</strong>；每个任务最多 <strong>100 步</strong>操作；每个任务<strong>没有重试机会</strong>——失败即计 0 分。请确保你的 Agent 在这些约束下稳定运行。</p>
+    </div>
+    <div class="faq-item" data-lang="en">
+      <h3>Q: What are the concurrency, timeout, and step limits?</h3>
+      <p>A: Up to <strong>8 tasks run concurrently</strong>; single model request timeout is <strong>3 minutes</strong>; each task allows a maximum of <strong>100 steps</strong>; <strong>no retries</strong> per task — a failure scores 0. Make sure your Agent runs reliably under these constraints.</p>
+    </div>
+
+    <div class="faq-item" data-lang="zh">
+      <h3>Q: 是否允许使用外部搜索引擎？</h3>
+      <p>A: <strong>不允许。</strong>Protocol III 考察的是 Agent 从指定起始网页出发的导航与信息提取能力，而非通用搜索能力。赛后成绩复核阶段将进行<strong>操作轨迹验证</strong>，确认任务结果是通过浏览器操作从目标网站获取，而非通过搜索引擎直接得到。</p>
+    </div>
+    <div class="faq-item" data-lang="en">
+      <h3>Q: Are external search engines allowed?</h3>
+      <p>A: <strong>No.</strong> Protocol III evaluates an Agent's ability to navigate and extract information starting from a designated webpage, not general search capability. During post-competition review, <strong>action trajectories will be verified</strong> to confirm that results were obtained through browser operations on the target website, not via search engines.</p>
+    </div>
+
+    <div class="faq-item" data-lang="zh">
       <h3>Q: 开源项目和比赛代码模板是什么关系？</h3>
       <p>A: 比赛代码模板是开源项目的精简版，保留了 Agent 核心执行框架，并预设好了评测系统的接口（任务输入、结果输出、沙箱连接）。你在开源项目上开发的 Agent 逻辑可以直接迁移到比赛模板中使用。</p>
     </div>
