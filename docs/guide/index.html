@@ -301,20 +301,60 @@
 
     <div class="faq-item" data-lang="zh">
       <h3>Q: 浏览器环境需要自己搭建吗？</h3>
-      <p>A: 不需要。评测时平台提供云端浏览器沙箱（CDP 协议连接）。本地调试可自行使用 Playwright 等工具。</p>
+      <p>A: 备赛期间需要自行搭建浏览器调试环境（如本地启动 Chrome 并通过 Playwright 连接 CDP）。正式评测时，官方会提供云端浏览器沙箱，CDP URL 自动传入你的 Agent，无需自行搭建。</p>
     </div>
     <div class="faq-item" data-lang="en">
       <h3>Q: Do I need to set up the browser environment?</h3>
-      <p>A: No. Cloud browser sandboxes (via CDP) are provided during evaluation. For local debugging, use tools like Playwright.</p>
+      <p>A: During the preparation period, you need to set up your own browser debugging environment (e.g., launch Chrome locally and connect via Playwright + CDP). During formal evaluation, cloud browser sandboxes are provided by the organizers with CDP URLs passed directly to your Agent — no setup required on your end.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
       <h3>Q: 可以使用哪些模型？</h3>
-      <p>A: 不限。任何模型或多模型组合均可（GPT-4o、Claude、Gemini、Qwen、开源模型等），唯一要求是通过 OpenAI 兼容 API 接入。</p>
+      <p>A: 参赛 Agent 通过 OpenAI 兼容 API 调用模型，分以下两种情况：</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;">
+        <div class="info-card" style="border-left:3px solid var(--primary);margin:0;">
+          <p style="font-weight:700;margin-bottom:8px;">🏢 商业闭源模型</p>
+          <p style="font-size:.85em;color:var(--text-2);margin-bottom:8px;">为保证比赛公平性，以下高性能版本<strong>禁止使用</strong>：</p>
+          <ul style="margin:0 0 8px 16px;font-size:.85em;color:var(--text-2);line-height:1.9;">
+            <li>OpenAI — GPT-5.4 以上<br><span style="color:var(--text-3);font-size:.9em;"></span></li>
+            <li>Anthropic — Claude 4.6 以上<br><span style="color:var(--text-3);font-size:.9em;"></span></li>
+            <li>智谱 AI — GLM-5.1 以上<br><span style="color:var(--text-3);font-size:.9em;"></span></li>
+            <li>Moonshot — Kimi-2.6 以上<br><span style="color:var(--text-3);font-size:.9em;"></span></li>
+          </ul>
+          <p style="font-size:.82em;color:var(--text-3);">未列出的厂商不做版本限制。</p>
+        </div>
+        <div class="info-card" style="border-left:3px solid var(--accent);margin:0;">
+          <p style="font-weight:700;margin-bottom:8px;">🔧 自部署模型</p>
+          <p style="font-size:.85em;color:var(--text-2);line-height:1.7;">允许使用自行训练或微调的模型，使用时需向组委会<strong>提交模型权重</strong>进行校验。</p>
+        </div>
+      </div>
+      <div class="info-card" style="border-left:3px solid #e74c3c;margin:0;background:#fef2f2;">
+        <p style="font-size:.85em;color:#991b1b;margin:0;">⚠️ 组委会将在评测过程中通过多种方式审查模型调用情况，严查以下行为：自部署模型后台套壳其他高性能模型、闭源模型通过中转接口调用禁用版本。一经发现作弊行为，评测成绩视为无效。</p>
+      </div>
     </div>
     <div class="faq-item" data-lang="en">
       <h3>Q: What models can I use?</h3>
-      <p>A: No restrictions. Any model or combination is allowed, as long as it connects via an OpenAI-compatible API.</p>
+      <p>A: Agents call models via OpenAI-compatible APIs. Rules differ by model type:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;">
+        <div class="info-card" style="border-left:3px solid var(--primary);margin:0;">
+          <p style="font-weight:700;margin-bottom:8px;">🏢 Commercial Closed-Source Models</p>
+          <p style="font-size:.85em;color:var(--text-2);margin-bottom:8px;">To ensure fairness, the following versions are <strong>prohibited</strong>:</p>
+          <ul style="margin:0 0 8px 16px;font-size:.85em;color:var(--text-2);line-height:1.9;">
+            <li>OpenAI — GPT-5.4+<br><span style="color:var(--text-3);font-size:.9em;"></span></li>
+            <li>Anthropic — Claude 4.6+<br><span style="color:var(--text-3);font-size:.9em;"></span></li>
+            <li>Zhipu AI — GLM-5.1+<br><span style="color:var(--text-3);font-size:.9em;"></span></li>
+            <li>Moonshot — Kimi-2.6+<br><span style="color:var(--text-3);font-size:.9em;"></span></li>
+          </ul>
+          <p style="font-size:.82em;color:var(--text-3);">Unlisted providers have no version restrictions.</p>
+        </div>
+        <div class="info-card" style="border-left:3px solid var(--accent);margin:0;">
+          <p style="font-weight:700;margin-bottom:8px;">🔧 Self-Deployed Models</p>
+          <p style="font-size:.85em;color:var(--text-2);line-height:1.7;">Allowed. Teams must submit <strong>model weights</strong> to the organizing committee for verification.</p>
+        </div>
+      </div>
+      <div class="info-card" style="border-left:3px solid #e74c3c;margin:0;background:#fef2f2;">
+        <p style="font-size:.85em;color:#991b1b;margin:0;">⚠️ The organizing committee will conduct multi-faceted audits during evaluation, specifically targeting: self-deployed models secretly proxying other high-performance models, and closed-source models routing through intermediary APIs to access prohibited versions. Any violation will result in disqualification.</p>
+      </div>
     </div>
 
     <div class="faq-item" data-lang="zh">
