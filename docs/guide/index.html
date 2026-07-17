@@ -122,7 +122,7 @@
     <div class="step-flow">
       <div class="step-item" data-lang="zh">
         <div class="step-num">1</div><div class="step-line"></div>
-        <div class="step-body"><strong>报名 & 组队</strong><p>在 Octo 平台注册账号，加入赛事空间并完成组队。</p></div>
+        <div class="step-body"><strong>报名 & 组队</strong><p>在 Octo 平台使用邮箱注册账号，加入赛事空间并完成组队。</p></div>
       </div>
       <div class="step-item" data-lang="zh">
         <div class="step-num">2</div><div class="step-line"></div>
@@ -145,7 +145,7 @@
     <div class="step-flow">
       <div class="step-item" data-lang="en">
         <div class="step-num">1</div><div class="step-line"></div>
-        <div class="step-body"><strong>Register & Form a Team</strong><p>Sign up on the Octo platform, join the competition space, and form your team.</p></div>
+        <div class="step-body"><strong>Register & Form a Team</strong><p>Sign up on the Octo platform with your email, join the competition space, and form your team.</p></div>
       </div>
       <div class="step-item" data-lang="en">
         <div class="step-num">2</div><div class="step-line"></div>
@@ -175,10 +175,10 @@
     <p data-lang="en">Start preparing right after registration:</p>
 
     <div class="info-card" data-lang="zh" style="margin-bottom:14px;border-left:3px solid #f59e0b;background:#fffbeb;">
-      <p>⚠️ <strong>注意：</strong>本次比赛采用<strong>纯视觉交互模式</strong>——Agent 通过 Playwright 对云端浏览器进行截图与模拟操作（点击、输入、滚动等），不支持直接访问 DOM 或 Accessibility Tree 等其他方式。</p>
+      <p>⚠️ <strong>注意：</strong>评测环境通过 CDP 提供云端浏览器，Agent 必须基于 <strong>Playwright</strong> 进行所有浏览器交互操作。</p>
     </div>
     <div class="info-card" data-lang="en" style="margin-bottom:14px;border-left:3px solid #f59e0b;background:#fffbeb;">
-      <p>⚠️ <strong>Note:</strong> This competition uses a <strong>vision-only interaction mode</strong> — Agents interact with cloud browsers via Playwright using screenshots and simulated actions (click, type, scroll, etc.). Direct access to DOM, Accessibility Tree, or other non-visual methods is not supported.</p>
+      <p>⚠️ <strong>Note:</strong> The evaluation environment provides cloud browsers via CDP. All browser interactions must be performed through <strong>Playwright</strong>.</p>
     </div>
 
     <p data-lang="zh"><strong>① 阅读论文，了解 Protocol III</strong> — WebRetriever 定义了三种评测协议，本次比赛采用 <strong>Protocol III（端到端任务协议）</strong>。建议结合 <a class="resource-link" href="https://arxiv.org/abs/2607.06118" target="_blank">论文</a> 和 <a class="resource-link" href="https://huggingface.co/datasets/Mininglamp-2718/WebRetriever" target="_blank">数据集</a> 了解任务格式与评分标准。</p>
