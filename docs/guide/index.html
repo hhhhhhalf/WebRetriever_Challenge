@@ -379,6 +379,59 @@
       <h3>Q: Who collects trajectory screenshots, action logs, and network requests?</h3>
       <p>A: Your Agent code collects and saves these to the output directory during execution. The open-source project provides complete reference implementations (screenshot saving, action logging, XHR/Fetch capture, etc.). The evaluation system automatically reads the results from the output directory for scoring.</p>
     </div>
+
+    <div class="faq-item" data-lang="zh">
+      <h3>Q: 输出格式是什么样的？</h3>
+      <p>A: 每道任务输出到 <code>{output_dir}/{task_idx}_{task_id}/</code>，目录结构如下：</p>
+      <pre style="background:#1e293b;color:#e2e8f0;border-radius:8px;padding:14px;font-size:.82em;line-height:1.5;overflow-x:auto;margin:10px 0;">output/
+├── locks/                          # 多进程协调锁文件
+├── 0_f0fe04a2.../
+│   ├── trajectory/                 # 每步原始截图（0.png, 1.png, ...）
+│   ├── trajectory_visual/          # 带动作标注的截图
+│   ├── result.json                 # 任务结果：状态、动作、思考、URL
+│   └── capture.json                # 捕获的 XHR/Fetch 网络请求
+└── logs/
+    └── worker_0_YYYYMMDD.log       # 每个 Worker 的日志文件</pre>
+      <p>其中 <code>result.json</code> 的核心字段示例：</p>
+      <pre style="background:#1e293b;color:#e2e8f0;border-radius:8px;padding:14px;font-size:.82em;line-height:1.5;overflow-x:auto;margin:10px 0;">{
+  "task_idx": 0,
+  "task_id": "f0fe04a2...",
+  "task": "查看 iPad Air 3 的屏幕更换指南",
+  "website": "https://zh.ifixit.com/",
+  "status": "SUCCESS",
+  "actions": ["click(100, 200)", "type('iPad Air 3')"],
+  "thoughts": ["分析页面...", "找到目标..."],
+  "urls": ["https://...", "https://..."],
+  "agent_answer": "找到了屏幕更换指南，共12个步骤"
+}</pre>
+      <p><strong>评分逻辑：</strong><code>status</code> 为 <code>SUCCESS</code> 且 <code>agent_answer</code> 包含正确答案 → 通过。<code>agent_answer</code> 是评分核心字段，需要参赛者自行实现答案提取逻辑。</p>
+    </div>
+    <div class="faq-item" data-lang="en">
+      <h3>Q: What does the output format look like?</h3>
+      <p>A: Each task outputs to <code>{output_dir}/{task_idx}_{task_id}/</code> with this structure:</p>
+      <pre style="background:#1e293b;color:#e2e8f0;border-radius:8px;padding:14px;font-size:.82em;line-height:1.5;overflow-x:auto;margin:10px 0;">output/
+├── locks/                          # Multi-process coordination locks
+├── 0_f0fe04a2.../
+│   ├── trajectory/                 # Raw screenshots at each step (0.png, 1.png, ...)
+│   ├── trajectory_visual/          # Annotated screenshots with action overlays
+│   ├── result.json                 # Task result: status, actions, thoughts, URLs
+│   └── capture.json                # Captured XHR/Fetch network requests
+└── logs/
+    └── worker_0_YYYYMMDD.log       # Per-worker log files</pre>
+      <p>Key fields in <code>result.json</code>:</p>
+      <pre style="background:#1e293b;color:#e2e8f0;border-radius:8px;padding:14px;font-size:.82em;line-height:1.5;overflow-x:auto;margin:10px 0;">{
+  "task_idx": 0,
+  "task_id": "f0fe04a2...",
+  "task": "View the Screen Replacement guide for iPad Air 3",
+  "website": "https://zh.ifixit.com/",
+  "status": "SUCCESS",
+  "actions": ["click(100, 200)", "type('iPad Air 3')"],
+  "thoughts": ["Analyzing page...", "Found target..."],
+  "urls": ["https://...", "https://..."],
+  "agent_answer": "Found screen replacement guide with 12 steps"
+}</pre>
+      <p><strong>Scoring logic:</strong> <code>status</code> is <code>SUCCESS</code> and <code>agent_answer</code> contains the correct answer → pass. <code>agent_answer</code> is the core scoring field — participants must implement their own answer extraction logic.</p>
+    </div>
   </div>
 
 </div>
