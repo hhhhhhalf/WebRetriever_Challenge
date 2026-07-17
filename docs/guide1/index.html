@@ -301,60 +301,40 @@
 
     <div class="faq-item" data-lang="zh">
       <h3>Q: 浏览器环境需要自己搭建吗？</h3>
-      <p>A: 不需要。评测时平台提供云端浏览器沙箱（CDP 协议连接）。本地调试可自行使用 Playwright 等工具。</p>
+      <p>A: 备赛期间需要自行搭建浏览器调试环境（如本地启动 Chrome 并通过 Playwright 连接 CDP）。正式评测时，官方会提供云端浏览器沙箱，CDP URL 自动传入你的 Agent，无需自行搭建。</p>
     </div>
     <div class="faq-item" data-lang="en">
       <h3>Q: Do I need to set up the browser environment?</h3>
-      <p>A: No. Cloud browser sandboxes (via CDP) are provided during evaluation. For local debugging, use tools like Playwright.</p>
+      <p>A: During the preparation period, you need to set up your own browser debugging environment (e.g., launch Chrome locally and connect via Playwright + CDP). During formal evaluation, cloud browser sandboxes are provided by the organizers with CDP URLs passed directly to your Agent — no setup required on your end.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
       <h3>Q: 可以使用哪些模型？</h3>
-      <p>A: 允许使用大多数模型，但为保证公平性，部分高性能模型被禁用：</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;">
-        <div class="info-card" style="border-left:3px solid #e74c3c;margin:0;">
-          <p style="font-weight:700;margin-bottom:6px;">🚫 禁用（以下版本及更新版本）</p>
-          <ul style="margin:0 0 0 16px;font-size:.85em;color:var(--text-2);line-height:1.8;">
-            <li>OpenAI — GPT-5.4 及以上</li>
-            <li>Anthropic — Claude 4.6 及以上</li>
-            <li>智谱 AI — GLM-5.2 及以上</li>
-            <li>Moonshot — Kimi-2.6 及以上</li>
-          </ul>
-        </div>
-        <div class="info-card" style="border-left:3px solid #27ae60;margin:0;">
-          <p style="font-weight:700;margin-bottom:6px;">✅ 允许使用</p>
-          <ul style="margin:0 0 0 16px;font-size:.85em;color:var(--text-2);line-height:1.8;">
-            <li>上述厂商的<strong>较低版本</strong>（如 GPT-4o、Claude Sonnet 4）</li>
-            <li><strong>其他厂商</strong>任意版本（DeepSeek、Qwen、豆包等）</li>
-            <li><strong>自研/自训模型</strong>（需提交组委会校验）</li>
-          </ul>
-        </div>
-      </div>
-      <p style="font-size:.85em;color:var(--text-3);margin-top:4px;">所有模型统一通过 OpenAI 兼容 API 接入。</p>
+      <p>A: 参赛 Agent 通过 OpenAI 兼容 API 调用模型，分以下两种情况：</p>
+      <p><strong>商业闭源模型：</strong>为保证公平性，以下高性能版本禁止使用：</p>
+      <ul style="margin:4px 0 8px 18px;font-size:.9em;line-height:2;">
+        <li>OpenAI — GPT-5.4 及以上（GPT-4o、o1、o3-mini 等可用）</li>
+        <li>Anthropic — Claude 4.6 及以上（Claude Sonnet 4、Claude 3.5 等可用）</li>
+        <li>智谱 AI — GLM-5.2 及以上（GLM-4 系列可用）</li>
+        <li>Moonshot — Kimi-2.6 及以上（Kimi-2.5 及更早版本可用）</li>
+      </ul>
+      <p style="font-size:.9em;color:var(--text-2);">以上未提及的厂商（DeepSeek、Qwen、豆包、Gemini 等）不做版本限制，均可自由使用。</p>
+      <p><strong>自研/自训模型：</strong>允许使用自行训练或微调的模型，使用时需向组委会提交模型权重进行校验。</p>
+      <p style="font-size:.9em;color:var(--text-2);">⚠️ 组委会将在评测过程中通过多种方式审查模型调用情况，严查以下行为：自部署模型后台套壳其他高性能模型、闭源模型通过中转接口调用禁用版本。一经发现，成绩作废。</p>
     </div>
     <div class="faq-item" data-lang="en">
       <h3>Q: What models can I use?</h3>
-      <p>A: Most models are allowed, but certain high-performance models are prohibited to ensure fairness:</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0;">
-        <div class="info-card" style="border-left:3px solid #e74c3c;margin:0;">
-          <p style="font-weight:700;margin-bottom:6px;">🚫 Prohibited (these versions and newer)</p>
-          <ul style="margin:0 0 0 16px;font-size:.85em;color:var(--text-2);line-height:1.8;">
-            <li>OpenAI — GPT-5.4+</li>
-            <li>Anthropic — Claude 4.6+</li>
-            <li>Zhipu AI — GLM-5.2+</li>
-            <li>Moonshot — Kimi-2.6+</li>
-          </ul>
-        </div>
-        <div class="info-card" style="border-left:3px solid #27ae60;margin:0;">
-          <p style="font-weight:700;margin-bottom:6px;">✅ Allowed</p>
-          <ul style="margin:0 0 0 16px;font-size:.85em;color:var(--text-2);line-height:1.8;">
-            <li><strong>Lower versions</strong> from the above (e.g., GPT-4o, Claude Sonnet 4)</li>
-            <li><strong>Any version</strong> from other providers (DeepSeek, Qwen, Doubao, etc.)</li>
-            <li><strong>Self-trained / fine-tuned models</strong> (submit to committee for verification)</li>
-          </ul>
-        </div>
-      </div>
-      <p style="font-size:.85em;color:var(--text-3);margin-top:4px;">All models must connect via an OpenAI-compatible API.</p>
+      <p>A: Agents call models via OpenAI-compatible APIs. Rules differ by model type:</p>
+      <p><strong>Commercial closed-source models:</strong> To ensure fairness, the following high-performance versions are prohibited:</p>
+      <ul style="margin:4px 0 8px 18px;font-size:.9em;line-height:2;">
+        <li>OpenAI — GPT-5.4 and above (GPT-4o, o1, o3-mini, etc. are allowed)</li>
+        <li>Anthropic — Claude 4.6 and above (Claude Sonnet 4, Claude 3.5, etc. are allowed)</li>
+        <li>Zhipu AI — GLM-5.2 and above (GLM-4 series allowed)</li>
+        <li>Moonshot — Kimi-2.6 and above (Kimi-2.5 and earlier allowed)</li>
+      </ul>
+      <p style="font-size:.9em;color:var(--text-2);">Providers not listed above (DeepSeek, Qwen, Doubao, Gemini, etc.) have no version restrictions.</p>
+      <p><strong>Self-trained / fine-tuned models:</strong> Allowed. Teams must submit model weights to the organizing committee for verification.</p>
+      <p style="font-size:.9em;color:var(--text-2);">⚠️ The organizing committee will conduct multi-faceted audits during evaluation, specifically targeting: self-deployed models secretly proxying other high-performance models, and closed-source models routing through intermediary APIs to access prohibited versions. Any violation will result in disqualification.</p>
     </div>
 
     <div class="faq-item" data-lang="zh">
