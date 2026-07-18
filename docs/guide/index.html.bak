@@ -495,7 +495,7 @@
 
 <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
 <script>
-function toggleLang(){var b=document.body,btn=document.getElementById('langBtn');var lang=b.classList.contains('lang-zh')?'en':'zh';b.className='lang-'+lang;btn.textContent=lang==='zh'?'EN':'中';document.documentElement.lang=lang;history.replaceState(null,'',lang==='en'?location.pathname:location.pathname+'?lang=zh');document.querySelectorAll('a[href*="../"]').forEach(function(a){var raw=a.getAttribute('href'),hi=raw.indexOf('#'),base=hi>=0?raw.substring(0,hi):raw,hash=hi>=0?raw.substring(hi):'';base=base.split('?')[0];a.href=lang==='en'?base+hash:base+'?lang=zh'+hash;});}
+function toggleLang(){var b=document.body,btn=document.getElementById('langBtn');var lang=b.classList.contains('lang-zh')?'en':'zh';b.className='lang-'+lang;btn.textContent=lang==='zh'?'EN':'中';document.documentElement.lang=lang;history.replaceState(null,'',lang==='en'?location.pathname:location.pathname+'?lang=zh');}
 (function(){var lang=new URLSearchParams(location.search).get('lang')||'en';document.body.className='lang-'+lang;document.documentElement.lang=lang;document.getElementById('langBtn').textContent=lang==='zh'?'EN':'中';})();
 // Dropdown toggle
 function setupDropdown(id){var d=document.getElementById(id),t=d&&d.querySelector(".nav-dropdown-toggle"),m=d&&d.querySelector(".nav-dropdown-menu");if(t)t.addEventListener("click",function(e){e.stopPropagation();document.querySelectorAll(".nav-dropdown").forEach(function(x){if(x!==d)x.classList.remove("is-open");});d.classList.toggle("is-open");});if(m)m.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){d.classList.remove("is-open");});});}
