@@ -312,24 +312,28 @@
       <h3>Q: 可以使用哪些模型？</h3>
       <p>A: 参赛 Agent 通过 OpenAI 兼容 API 调用模型，分以下两种情况：</p>
       <p style="font-size:.95em;font-weight:600;margin:16px 0 8px;"><span style="color:var(--primary);">1.</span> 商业闭源模型</p>
-      <p style="font-size:.85em;color:var(--text-2);margin-bottom:10px;">各厂商允许使用的<strong>最高版本</strong>：</p>
-      <table style="width:100%;border-collapse:collapse;font-size:.85em;margin-bottom:10px;">
+      <div class="info-card" style="border:1px solid var(--border);margin:0 0 16px;">
+        <p style="font-size:.85em;color:var(--text-2);margin-bottom:10px;">各厂商允许使用的<strong>最高版本</strong>：</p>
+        <table style="width:100%;border-collapse:collapse;font-size:.85em;margin-bottom:10px;">
         <thead><tr style="border-bottom:2px solid var(--border);">
-          <th style="text-align:left;padding:5px 12px;color:var(--text-3);font-weight:600;">厂商</th>
-          <th style="text-align:left;padding:5px 12px;color:var(--text-3);font-weight:600;">最高版本</th>
+        <th style="text-align:left;padding:5px 12px;color:var(--text-3);font-weight:600;">厂商</th>
+        <th style="text-align:left;padding:5px 12px;color:var(--text-3);font-weight:600;">最高版本</th>
         </tr></thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">OpenAI</td><td style="padding:5px 12px;font-weight:500;">GPT-5.4</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Anthropic</td><td style="padding:5px 12px;font-weight:500;">Claude 4.6</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Google</td><td style="padding:5px 12px;font-weight:500;">Gemini 3.1</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">xAI</td><td style="padding:5px 12px;font-weight:500;">Grok 4.3</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">智谱 AI</td><td style="padding:5px 12px;font-weight:500;">GLM-5V-Turbo</td></tr>
-          <tr><td style="padding:5px 12px;color:var(--text-2);">Moonshot</td><td style="padding:5px 12px;font-weight:500;">Kimi-K2.6</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">OpenAI</td><td style="padding:5px 12px;font-weight:500;">GPT-5.4</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Anthropic</td><td style="padding:5px 12px;font-weight:500;">Claude 4.6</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Google</td><td style="padding:5px 12px;font-weight:500;">Gemini 3.1</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">xAI</td><td style="padding:5px 12px;font-weight:500;">Grok 4.3</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">智谱 AI</td><td style="padding:5px 12px;font-weight:500;">GLM-5V-Turbo</td></tr>
+        <tr><td style="padding:5px 12px;color:var(--text-2);">Moonshot</td><td style="padding:5px 12px;font-weight:500;">Kimi-K2.6</td></tr>
         </tbody>
-      </table>
-      <p style="font-size:.82em;color:var(--text-3);margin-bottom:16px;">超出上述版本的禁止使用。未列出的厂商不做版本限制。</p>
+        </table>
+        <p style="font-size:.82em;color:var(--text-3);margin-bottom:16px;">超出上述版本的禁止使用。未列出的厂商不做版本限制。</p>
+      </div>
       <p style="font-size:.95em;font-weight:600;margin:0 0 8px;"><span style="color:var(--primary);">2.</span> 自部署模型</p>
-      <p style="font-size:.85em;color:var(--text-2);line-height:1.7;margin-bottom:12px;">允许使用自行训练或微调的模型，赛后需向组委会<strong>提交模型权重</strong>进行校验。</p>
+      <div class="info-card" style="border:1px solid var(--border);margin:0 0 12px;">
+        <p style="font-size:.85em;color:var(--text-2);line-height:1.7;margin-bottom:12px;">允许使用自行训练或微调的模型，赛后需向组委会<strong>提交模型权重</strong>进行校验。</p>
+      </div>
       <div class="info-card" style="border-left:3px solid #e74c3c;margin:0;background:#fef2f2;">
         <p style="font-size:.85em;color:#991b1b;margin:0;">⚠️ 组委会将在评测过程中通过多种方式审查模型调用情况，严查以下行为：自部署模型后台套壳其他高性能模型、闭源模型通过中转接口调用禁用版本。一经发现作弊行为，评测成绩视为无效。</p>
       </div>
@@ -338,24 +342,28 @@
       <h3>Q: What models can I use?</h3>
       <p>A: Agents call models via OpenAI-compatible APIs. Rules differ by model type:</p>
       <p style="font-size:.95em;font-weight:600;margin:16px 0 8px;"><span style="color:var(--primary);">1.</span> Commercial Closed-Source Models</p>
-      <p style="font-size:.85em;color:var(--text-2);margin-bottom:10px;"><strong>Maximum allowed version</strong> per provider:</p>
-      <table style="width:100%;border-collapse:collapse;font-size:.85em;margin-bottom:10px;">
+      <div class="info-card" style="border:1px solid var(--border);margin:0 0 16px;">
+        <p style="font-size:.85em;color:var(--text-2);margin-bottom:10px;"><strong>Maximum allowed version</strong> per provider:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:.85em;margin-bottom:10px;">
         <thead><tr style="border-bottom:2px solid var(--border);">
-          <th style="text-align:left;padding:5px 12px;color:var(--text-3);font-weight:600;">Provider</th>
-          <th style="text-align:left;padding:5px 12px;color:var(--text-3);font-weight:600;">Max Version</th>
+        <th style="text-align:left;padding:5px 12px;color:var(--text-3);font-weight:600;">Provider</th>
+        <th style="text-align:left;padding:5px 12px;color:var(--text-3);font-weight:600;">Max Version</th>
         </tr></thead>
         <tbody>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">OpenAI</td><td style="padding:5px 12px;font-weight:500;">GPT-5.4</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Anthropic</td><td style="padding:5px 12px;font-weight:500;">Claude 4.6</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Google</td><td style="padding:5px 12px;font-weight:500;">Gemini 3.1</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">xAI</td><td style="padding:5px 12px;font-weight:500;">Grok 4.3</td></tr>
-          <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Zhipu AI</td><td style="padding:5px 12px;font-weight:500;">GLM-5V-Turbo</td></tr>
-          <tr><td style="padding:5px 12px;color:var(--text-2);">Moonshot</td><td style="padding:5px 12px;font-weight:500;">Kimi-K2.6</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">OpenAI</td><td style="padding:5px 12px;font-weight:500;">GPT-5.4</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Anthropic</td><td style="padding:5px 12px;font-weight:500;">Claude 4.6</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Google</td><td style="padding:5px 12px;font-weight:500;">Gemini 3.1</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">xAI</td><td style="padding:5px 12px;font-weight:500;">Grok 4.3</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 12px;color:var(--text-2);">Zhipu AI</td><td style="padding:5px 12px;font-weight:500;">GLM-5V-Turbo</td></tr>
+        <tr><td style="padding:5px 12px;color:var(--text-2);">Moonshot</td><td style="padding:5px 12px;font-weight:500;">Kimi-K2.6</td></tr>
         </tbody>
-      </table>
-      <p style="font-size:.82em;color:var(--text-3);margin-bottom:16px;">Versions above these limits are prohibited. Unlisted providers have no version restrictions.</p>
+        </table>
+        <p style="font-size:.82em;color:var(--text-3);margin-bottom:16px;">Versions above these limits are prohibited. Unlisted providers have no version restrictions.</p>
+      </div>
       <p style="font-size:.95em;font-weight:600;margin:0 0 8px;"><span style="color:var(--primary);">2.</span> Self-Deployed Models</p>
-      <p style="font-size:.85em;color:var(--text-2);line-height:1.7;margin-bottom:12px;">Allowed. After the competition, teams must submit <strong>model weights</strong> to the organizing committee for verification.</p>
+      <div class="info-card" style="border:1px solid var(--border);margin:0 0 12px;">
+        <p style="font-size:.85em;color:var(--text-2);line-height:1.7;margin-bottom:12px;">Allowed. After the competition, teams must submit <strong>model weights</strong> to the organizing committee for verification.</p>
+      </div>
       <div class="info-card" style="border-left:3px solid #e74c3c;margin:0;background:#fef2f2;">
         <p style="font-size:.85em;color:#991b1b;margin:0;">⚠️ The organizing committee will conduct multi-faceted audits during evaluation, specifically targeting: self-deployed models secretly proxying other high-performance models, and closed-source models routing through intermediary APIs to access prohibited versions. Any violation will result in disqualification.</p>
       </div>
